@@ -9,20 +9,21 @@ const NavBar = observer(() => {
     return (
         <Navbar bg="dark" variant="dark" expand="lg">
             <Container fluid>
-                <NavLink style={{color: "white"}} to={SHOP_ROUTE}>ESG</NavLink>
+                <NavLink style={{color: "white"}} className={"mt-2"} to={SHOP_ROUTE}>ESG</NavLink>
+                <Navbar.Toggle aria-controls="navbarScroll"/>
                 <Navbar.Collapse className="ml-auto">
                     {user.isAuth ? <Nav
                         className="ms-auto"
                         style={{maxHeight: '150px', color: "white"}}
                     >
-                        <Button variant={"outline-light"}>Admin Pannel</Button>
-                        <Button variant={"outline-light"} className="ms-3" onClick={() => user.setIsAuth(false)}>Log
+                        <Button variant={"outline-light"} className="ms-3 mt-2">Admin Pannel</Button>
+                        <Button variant={"outline-light"} className="ms-3 mt-2" onClick={() => user.setIsAuth(false)}>Log
                             out</Button>
                     </Nav> : <Nav
                         className="ms-auto"
                         style={{maxHeight: '150px', color: "white"}}
                     >
-                        <Button variant={"outline-light"} onClick={() => user.setIsAuth(true)}>Sign in</Button>
+                        <Button variant={"outline-light"} className={"mt-2"} onClick={() => user.setIsAuth(true)}>Sign in</Button>
                     </Nav>}
                     {/*<Form className="d-flex">*/}
                     {/*    <Form.Control*/}
