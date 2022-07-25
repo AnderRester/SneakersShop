@@ -22,11 +22,11 @@ export const publicRoutes = [
         Component: <Shop/>
     },
     {
-        path: REGISTRATION_ROUTE,
+        path: LOGIN_ROUTE,
         Component: <Auth/>
     },
     {
-        path: LOGIN_ROUTE,
+        path: REGISTRATION_ROUTE,
         Component: <Auth/>
     },
     {

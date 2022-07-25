@@ -1,9 +1,9 @@
 import React, {useContext} from 'react';
 import {Context} from "../index";
-import {Button, Container, Nav, Navbar, NavLink} from "react-bootstrap";
+import {Button, Container, Nav, Navbar} from "react-bootstrap";
 import {ADMIN_ROUTE, LOGIN_ROUTE, SHOP_ROUTE} from "../utils/consts";
 import {observer} from "mobx-react-lite";
-import {useNavigate} from "react-router-dom";
+import {useNavigate, NavLink} from "react-router-dom";
 
 const NavBar = observer(() => {
     const navigate = useNavigate()
