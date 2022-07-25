@@ -9,14 +9,14 @@ const DeviceItem = ({device}) => {
     console.log(navigate)
     return (
         <Col md={3} className={"mt-3"} onClick={() => navigate(DEVICE_ROUTE + '/' + device.id)}>
-            <Card style={{width: "92%", cursor: "pointer"}} border={"light"}>
+            <Card style={{width: 180, height: 270, cursor: "pointer"}} border={"dark"}>
                 <Image className={"align-self-center"} width={150} height={150}
                        src={process.env.REACT_APP_API_URL + device.img}/>
-                <div className={"align-items-center m-auto"}>
+                <div className={"d-flex align-items-center justify-content-center text-center mt-3"} style={{height: "100%"}}>
                     {device.name}
                 </div>
-                <div className={"text-black-50 mt-1 mb-2 d-flex justify-content-around align-items-center"}>
-                    <div>
+                <div className={"text-black-50 d-flex justify-content-around align-items-end mb-3"} style={{height: "100%"}}>
+                    <div style={{fontWeight: "bold", color: "darkslategray"}}>
                         Adidas
                     </div>
                     <div className={"d-flex"}>

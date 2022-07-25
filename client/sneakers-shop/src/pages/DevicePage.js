@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Button, Card, Col, Container, Image, Row} from "react-bootstrap";
 import {useParams} from "react-router-dom";
-import {fetchOneDevice} from "../components/http/deviceAPI";
+import {fetchOneDevice} from "../http/deviceAPI";
 
 const DevicePage = () => {
     const [device, setDevice] = useState({info: []})

@@ -1,15 +1,13 @@
 import React, {useContext, useState, useEffect} from 'react';
 import {Button, Col, Dropdown, Form, Modal, Row} from "react-bootstrap";
 import {Context} from "../../index";
-import {createDevice, fetchBrands, fetchDevices, fetchTypes} from "../http/deviceAPI";
+import {createDevice, fetchBrands, fetchDevices, fetchTypes} from "../../http/deviceAPI";
 import {observer} from "mobx-react-lite";
 
 const CreateDevice = observer(({show, onHide}) => {
     const {device} = useContext(Context)
     const [name, setName] = useState(['']);
     const [price, setPrice] = useState([0]);
-    const [brand, setBrand] = useState([null]);
-    const [type, setType] = useState([null]);
     const [file, setFile] = useState([null]);
     const [info, setInfo] = useState([]);
 
@@ -41,7 +39,6 @@ const CreateDevice = observer(({show, onHide}) => {
         formData.append('brandId', device.selectedBrand.id)
         formData.append('typeId', device.selectedType.id)
         formData.append('info', JSON.stringify(info))
-        console.log(createDevice(formData))
         createDevice(formData).then(data => onHide())
     }
 
@@ -73,14 +70,15 @@ const CreateDevice = observer(({show, onHide}) => {
                         <Dropdown.Menu>
                             {device.brands.map(brand =>
                                 <Dropdown.Item onClick={() => device.setSelectedBrand(brand)}
-                                               key={brand.id}>{brand.name}</Dropdown.Item>
+                                               key={brand.id}>{brand.name}
+                                </Dropdown.Item>
                             )}
                         </Dropdown.Menu>
                     </Dropdown>
                     <Form.Control className={"mt-3"} placeholder={"Enter device name"} value={name}
                                   onChange={e => setName(e.target.value)}/>
                     <Form.Control className={"mt-3"} placeholder={"Enter device price"} type={"number"} value={price}
-                                  onChange={e => setPrice(e.target.value)}/>
+                                  onChange={e => setPrice(Number(e.target.value))}/>
                     <Form.Control className={"mt-3"} placeholder={"Choose device image"} type={"file"}
                                   onChange={selectFile}/>
                     <hr/>
